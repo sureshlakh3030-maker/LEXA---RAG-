@@ -1,0 +1,35 @@
+[Users]
+   │
+   ▼
+[Web/App UI or Chatbot]
+   │
+   ▼
+[API Gateway / Backend]
+   │
+   ├──► [Auth & Access Control]
+   │
+   ├──► [Query Processing & Orchestrator]
+   │          │
+   │          ├──► [Embedding Service] ─► [Vector Database]
+   │          │                              ▲
+   │          │                              │
+   │          └──► [Retrieve Top-k Chunks] ◄─┘
+   │
+   ├──► [LLM Service (RAG: Context + Query)]
+   │
+   └──► [Response Formatter + Logging]
+   │
+   ▼
+[Answer with citations + links]
+
+------------ Offline ------------
+[Ingestion Pipeline] ─► [Text Extraction/OCR]
+                           │
+                           ▼
+                    [Chunking + Metadata]
+                           │
+                           ▼
+                    [Embedding Service]
+                           │
+                           ▼
+                    [Vector Database + Storage]
